@@ -1,14 +1,14 @@
 #!/bin/bash
 set -e
-if [ -e /stressng_from_source_installed ];then
-  echo "libgit2+pygit2 already installed from source - /stressng_from_source_installed exists."
+if [ -e /fio_from_source_installed ];then
+  echo "fio_from_source_installed exists."
   exit 0
 fi
 cd /tmp
-tar xf stress-ng-*
-cd /tmp/stress-ng-*
+tar xf fio.tar.gz
+cd /tmp/fio-*
+./configure
 make
-cp stress-ng /usr/bin
-cd /tmp
-rm -rf /tmp/stress-*
-touch /stressng_from_source_installed
+make install
+rm -rf /tmp/fio*
+touch /fio_from_source_installed

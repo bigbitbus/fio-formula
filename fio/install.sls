@@ -18,7 +18,7 @@ download_source:
   cmd.run:
     - names: 
       - rm -rf fio*
-      - wget {{ fiourl }}
+      - wget {{ fiourl }} -O fio.tar.gz
     - cwd: /tmp
 
 compile_source:
