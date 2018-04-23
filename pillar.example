@@ -1,0 +1,12 @@
+fio:
+  lookup:
+    package: 'fio'
+    install_from_source: True
+    stressng_source_url:  "https://github.com/axboe/fio/archive/master.tar.gz"
+
+execute:
+  lookup:
+    out_dir: '/tmp/outputdata'
+    job_file_list: 
+      - testing.job
+      

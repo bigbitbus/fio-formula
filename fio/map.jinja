@@ -1,0 +1,31 @@
+{% set install_stressng = salt['grains.filter_by']({
+    'Debian': {
+        'package': 'fio',
+        'prereq_packages': ['gcc','make'],
+        'install_from_source': True
+    },
+    'RedHat': {
+        'package': 'fio',
+        'prereq_packages': ['gcc','make'],
+        'install_from_source': True
+    },    
+    'common': {
+        'fio_source_url':  "https://github.com/axboe/fio/archive/master.tar.gz"
+    }
+
+}, grain='os_family', merge=salt['pillar.get']('install:lookup'), default='Debian', base='common')%}
+
+{% set exec_fio = salt['grains.filter_by']({
+    'Debian': {
+    },
+    'RedHat': {
+    },    
+    'common': {
+        'fio_path': '/usr/local/bin/fio',
+        'cmd_cli_args': '--output-format=json+',
+        'out_dir' : '/tmp/outputdata',
+        'job_file_list': ['fio-rand-RW.job','fio-seq-RW.job']
+    }
+
+}, grain='os_family', merge=salt['pillar.get']('execute:lookup'), default='Debian', base='common')%}
+
