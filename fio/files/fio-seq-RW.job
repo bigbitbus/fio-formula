@@ -11,7 +11,7 @@ direct=0
 numjobs=4
 time_based=1
 runtime=300
-
+size=3G
 [file1]
 size=3G
 ioengine=libaio
