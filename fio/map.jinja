@@ -23,8 +23,8 @@
     'common': {
         'fio_path': '/usr/local/bin/fio',
         'cmd_cli_args': '--output-format=json+',
-        'out_dir' : '/tmp/outputdata',
-        'job_file_list': []
+        'out_dir' : '/tmp/outputdata/fio',
+        'job_file_list': ['testing.job']
     }
 
 }, grain='os_family', merge=salt['pillar.get']('fio:execute:lookup'), default='Debian', base='common')%}

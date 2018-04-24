@@ -10,7 +10,7 @@ bs=4K
 direct=0
 numjobs=4
 time_based=1
-runtime=900
+runtime=300
 
 [file1]
 size=10G
