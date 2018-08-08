@@ -1,4 +1,0 @@
-test_id: {{ test_id }}
-minion_id: {{ minion_id }}
-command_run: {{ command_run }}
- 

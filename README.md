@@ -1,6 +1,6 @@
-# Stress-ng formula
+# Fio Formula
 
-[Stress-ng](http://kernel.ubuntu.com/~cking/stress-ng/) is a benchmarking tool to exercise multiple computer subsystems such as CPU, memory, IO and networking. This [salt formula](https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html) can be used to install it from the package repository or from source, and execute stress-ng on the provided job file(s).
+[Fio](http://kernel.ubuntu.com/~cking/stress-ng/) is a benchmarking tool to exercise multiple computer subsystems such as CPU, memory, IO and networking. This [salt formula](https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html) can be used to install it from the package repository or from source, and execute stress-ng on the provided job file(s).
 
 See the full Salt Formulas installation and usage instructions [here](http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html).
 ## What this formula offers
