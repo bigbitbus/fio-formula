@@ -23,8 +23,9 @@
     'common': {
         'fio_path': '/usr/local/bin/fio',
         'cmd_cli_args': '--output-format=json+',
-        'out_dir' : '/tmp/outputdata',
-        'job_file_list': []
+        'out_dir' : '/tmp/outputdata/diskchecker',
+        'job_file_list': [],
+        'runtime': 60
     }
 
 }, grain='os_family', merge=salt['pillar.get']('fio:execute:lookup'), default='Debian', base='common')%}

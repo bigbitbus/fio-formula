@@ -6,7 +6,8 @@ fio:
 
 execute:
   lookup:
-    out_dir: '/tmp/outputdata'
+    out_dir: '/tmp/outputdata/diskchecker'
+    disk_file: '/disk/file' #e.g. /dev/sdb for sdb
     job_file_list: 
       - testing.job
       

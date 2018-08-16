@@ -5,6 +5,8 @@
 {% set out_dir = exec_fio_map.get('out_dir','/tmp/outputdata') %}
 {% set test_id = grains.get('testgitref','no_test_id_grain') %}
 {% set minion_id = grains.get('host', 'no_hostname_grain' ) %}
+{% set disk_file = grains.get('disk_file','/dev/null') %}
+{% set runtime = exec_fio_map.get('runtime',60) %}
 check_and_setup:
   cmd.run:
     - name: '{{ fio_path }} -h'
@@ -22,15 +24,19 @@ run_fio_jobfile_{{job_file}}:
       - file.directory  
     - makedirs: True
 
-{% set base_cmd_list = [fio_path, cli_args, ['--output=',test_out_dir,'/fio.output']|join('')] %}  
+{% set base_cmd_list = ( [fio_path, cli_args,
+['--output=',test_out_dir,'/fio.output']|join(''),
+['--filename=',disk_file]|join(''),
+['--runtime=',runtime]| join('') ] %}
+
 
   cmd.run:
     - name: {{ base_cmd_list | join(' ') }}  {{ test_out_dir }}/fio.job
     - requires:
       - check_and_setup
       - file.managed
-
 {% endfor %}
+
 
 
 

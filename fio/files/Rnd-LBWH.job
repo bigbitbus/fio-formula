@@ -1,0 +1,17 @@
+[global]
+name=BigBitBus LBRH
+rw=randrw
+rwmixread=20
+rwmixwrite=80
+direct=1
+numjobs=2*$ncpus
+time_based=1
+ioengine=libaio
+size=2*$mb_memory*1024768
+iodepth=4
+group_reporting=1
+[sbrh]
+bssplit=256k:512k:1M:4M
+
+
+
