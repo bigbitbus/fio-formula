@@ -27,7 +27,7 @@ run_fio_jobfile_{{job_file}}:
 {% set base_cmd_list = ( [fio_path, cli_args,
 ['--output=',test_out_dir,'/fio.output']|join(''),
 ['--filename=',disk_file]|join(''),
-['--runtime=',runtime]| join('') ] %}
+['--runtime=',runtime]| join('') ] ) %}
 
 
   cmd.run:
