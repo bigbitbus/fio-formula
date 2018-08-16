@@ -1,7 +1,7 @@
 {% set install_fio = salt['grains.filter_by']({
     'Debian': {
         'package': 'fio',
-        'prereq_packages': ['gcc','make','libaio-dev', 'libaio'],
+        'prereq_packages': ['gcc','make','libaio-dev', 'libaio1'],
         'install_from_source': True
     },
     'RedHat': {
