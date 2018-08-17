@@ -6,7 +6,7 @@
 {% set test_id = grains.get('testgitref','no_test_id_grain') %}
 {% set minion_id = grains.get('host', 'no_hostname_grain' ) %}
 {% set disk_file = grains.get('disk_file','/dev/null') %}
-{% set runtime = exec_fio_map.get('runtime',60) %}
+{% set runtime = exec_fio_map.get('runtime',600) %}
 
 remove_old_data_directory:
   file.absent:
