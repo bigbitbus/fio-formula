@@ -20,21 +20,21 @@ check_and_setup:
     - requires:
         - remove_old_data_directory
 
-# completely fill up the disk with random data
-random_overwrite_disk1:
-  cmd.run:
-    - name: openssl enc -aes-256-ctr -pass pass:"$(dd if=/dev/urandom bs=128 count=1 2>/dev/null | base64)" -nosalt < /dev/zero > {{ disk_file }}
-    - check_cmd: # since above will always return non-zero as disk is exhausted
-      - /bin/true
-
-# and again - fill it with random data twice.
-random_overwrite_disk2:
-  cmd.run:
-    - name: openssl enc -aes-256-ctr -pass pass:"$(dd if=/dev/urandom bs=128 count=1 2>/dev/null | base64)" -nosalt < /dev/zero > {{ disk_file }}
-    - check_cmd: # since above will always return non-zero as disk is exhausted
-      - /bin/true
-    - requires:
-      - random_overwrite_disk1
+## completely fill up the disk with random data
+#random_overwrite_disk1:
+#  cmd.run:
+#    - name: openssl enc -aes-256-ctr -pass pass:"$(dd if=/dev/urandom bs=128 count=1 2>/dev/null | base64)" -nosalt < /dev/zero > {{ disk_file }}
+#    - check_cmd: # since above will always return non-zero as disk is exhausted
+#      - /bin/true
+#
+## and again - fill it with random data twice.
+#random_overwrite_disk2:
+#  cmd.run:
+#    - name: openssl enc -aes-256-ctr -pass pass:"$(dd if=/dev/urandom bs=128 count=1 2>/dev/null | base64)" -nosalt < /dev/zero > {{ disk_file }}
+#    - check_cmd: # since above will always return non-zero as disk is exhausted
+#      - /bin/true
+#    - requires:
+#      - random_overwrite_disk1
 
 
 {% for job_file in job_file_list %}
