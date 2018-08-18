@@ -7,7 +7,7 @@ direct=1
 numjobs=2*$ncpus
 time_based=1
 ioengine=libaio
-size=2*$mb_memory*1024768
+size=$mb_memory*1024768
 iodepth=4
 group_reporting=1
 [sbrh]
